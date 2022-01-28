@@ -20,7 +20,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Exucute Gradle build
       uses: ./
-      with:
+      with: 
+        cache-read-only: false
         build-root-directory: __tests__/samples/groovy-dsl
         arguments: test
 

@@ -22,6 +22,9 @@ jobs:
     - name: Setup Gradle
       uses: ./
       with:
+        # Need to be able to write cache entries from non-default branches
+        cache-read-only: false
+
         # Add "enterprise" to main cache entry but omit "notifications"
         gradle-home-cache-includes: |
             caches
@@ -116,6 +119,7 @@ jobs:
     - name: Setup Gradle
       uses: ./
       with:
+        cache-read-only: false
         cache-write-only: true
     - name: Build using Gradle wrapper
       working-directory: __tests__/samples/groovy-dsl

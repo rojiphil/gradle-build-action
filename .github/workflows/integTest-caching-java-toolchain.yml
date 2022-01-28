@@ -20,6 +20,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Setup Gradle
       uses: ./
+      with: 
+        cache-read-only: false
     - name: Build using Gradle wrapper
       working-directory: __tests__/samples/java-toolchain
       run: ./gradlew test --info
